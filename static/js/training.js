@@ -101,7 +101,15 @@ function loadLesson() {
 
     const lesson = module.lessons[currentLesson];
     const contentDiv = document.getElementById('training-content');
-    contentDiv.innerHTML = lesson.content;
+    
+    // Add speak button to lesson content
+    const speakButton = `
+        <button class="btn btn-secondary mt-3" onclick="speakText('${lesson.title}. ${lesson.content}')">
+            <i class="fas fa-volume-up"></i> Listen to Lesson
+        </button>
+    `;
+    
+    contentDiv.innerHTML = lesson.content + speakButton;
 
     // Update progress
     updateProgress();
@@ -152,5 +160,17 @@ function loadProgress() {
         currentModule = module;
         currentLesson = lesson;
         updateProgress();
+    }
+}
+
+// Text-to-speech functionality
+const speechSynthesis = window.speechSynthesis;
+
+function speakText(text) {
+    if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        speechSynthesis.speak(utterance);
     }
 }
