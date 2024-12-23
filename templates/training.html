@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Training{% endblock %}
+
+{% block content %}
+<div class="training-container">
+    <h2 class="mb-4">First Aid Training</h2>
+    
+    <!-- Training Progress -->
+    <div class="progress mb-4">
+        <div class="progress-bar" role="progressbar" style="width: 0%" id="training-progress"></div>
+    </div>
+
+    <!-- Training Modules -->
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card module-card" data-module="basic">
+                <div class="card-body">
+                    <h5 class="card-title">Basic First Aid</h5>
+                    <p class="card-text">Learn fundamental first aid skills and emergency response basics.</p>
+                    <ul class="list-unstyled">
+                        <li>✓ Safety Assessment</li>
+                        <li>✓ Emergency Calls</li>
+                        <li>✓ Basic Life Support</li>
+                    </ul>
+                    <button class="btn btn-primary start-module" data-module="basic">Start Module</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card module-card" data-module="emergency">
+                <div class="card-body">
+                    <h5 class="card-title">Emergency Response</h5>
+                    <p class="card-text">Handle common emergency situations effectively.</p>
+                    <ul class="list-unstyled">
+                        <li>✓ Heart Attacks</li>
+                        <li>✓ Strokes</li>
+                        <li>✓ Severe Bleeding</li>
+                    </ul>
+                    <button class="btn btn-primary start-module" data-module="emergency">Start Module</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card module-card" data-module="advanced">
+                <div class="card-body">
+                    <h5 class="card-title">Advanced Care</h5>
+                    <p class="card-text">Advanced techniques for critical situations.</p>
+                    <ul class="list-unstyled">
+                        <li>✓ CPR</li>
+                        <li>✓ Fracture Care</li>
+                        <li>✓ Childbirth</li>
+                    </ul>
+                    <button class="btn btn-primary start-module" data-module="advanced">Start Module</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Training Content Modal -->
+    <div class="modal fade" id="trainingModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Training Module</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="training-content">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="next-lesson">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/training.js') }}"></script>
+{% endblock %}

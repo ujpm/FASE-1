@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Emergency Response{% endblock %}
+
+{% block content %}
+<div class="emergency-container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <!-- Emergency Button -->
+            <div class="text-center mb-4">
+                <button class="btn btn-danger btn-lg emergency-btn" id="emergency-btn">
+                    <i class="fas fa-exclamation-triangle"></i> Report Emergency
+                </button>
+            </div>
+
+            <!-- Emergency Form -->
+            <div class="card" id="emergency-form" style="display: none;">
+                <div class="card-body">
+                    <h3 class="card-title">Emergency Report</h3>
+                    <form id="report-form">
+                        <div class="mb-3">
+                            <label class="form-label">Emergency Type</label>
+                            <select class="form-select" id="emergency-type" required>
+                                <option value="">Select type...</option>
+                                <option value="medical">Medical Emergency</option>
+                                <option value="accident">Accident</option>
+                                <option value="cardiac">Heart Attack</option>
+                                <option value="stroke">Stroke</option>
+                                <option value="childbirth">Childbirth</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" id="emergency-description" rows="3" 
+                                    placeholder="Describe the emergency situation..." required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="location-input" 
+                                       placeholder="Your location..." required>
+                                <button class="btn btn-outline-secondary" type="button" id="get-location">
+                                    Get My Location
+                                </button>
+                            </div>
+                            <div class="form-text">
+                                Provide detailed location or use GPS
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Contact Number</label>
+                            <input type="tel" class="form-control" id="contact-number" 
+                                   placeholder="Your phone number" required>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger">Submit Emergency Report</button>
+                            <button type="button" class="btn btn-secondary" id="cancel-report">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SMS Instructions -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">No Internet? Use SMS</h5>
+                    <p class="card-text">
+                        Send SMS to <strong>FASE1</strong> (32731) with the following format:
+                    </p>
+                    <pre class="bg-light p-2">
+HELP
+Type: [Emergency Type]
+Desc: [Brief Description]
+Loc: [Your Location]
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Response Modal -->
+    <div class="modal fade" id="responseModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Emergency Reported</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your emergency has been reported. Help is on the way!</p>
+                    <div id="response-details">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/emergency.js') }}"></script>
+{% endblock %}

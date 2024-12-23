@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center mb-4">
+        <h1>Welcome to FASE-1</h1>
+        <p class="lead">Empowering communities through emergency response training</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Emergency Response</h5>
+                <p class="card-text">Report an emergency or find nearby help</p>
+                <a href="/emergency" class="btn btn-danger">Emergency Help</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">First Aid Training</h5>
+                <p class="card-text">Learn essential first aid skills</p>
+                <a href="/training" class="btn btn-primary">Start Training</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Community Stats</h5>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <h3 id="trainedResponders">0</h3>
+                        <p>Trained Responders</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 id="emergenciesHandled">0</h3>
+                        <p>Emergencies Handled</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 id="communitiesServed">0</h3>
+                        <p>Communities Served</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Placeholder for stats update
+    document.getElementById('trainedResponders').textContent = '150';
+    document.getElementById('emergenciesHandled').textContent = '75';
+    document.getElementById('communitiesServed').textContent = '25';
+</script>
+{% endblock %}
