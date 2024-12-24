@@ -196,148 +196,99 @@ function startModule(moduleId) {
     document.head.appendChild(styleSheet);
 }
 
-// Track module progress
-class ModuleProgress {
-    constructor() {
-        this.progress = this.loadProgress();
-        this.initializeProgress();
-        this.trackScroll();
-    }
-
-    loadProgress() {
-        const savedProgress = localStorage.getItem('moduleProgress');
-        return savedProgress ? JSON.parse(savedProgress) : {};
-    }
-
-    saveProgress(moduleId, progress) {
-        this.progress[moduleId] = progress;
-        localStorage.setItem('moduleProgress', JSON.stringify(this.progress));
-        this.updateProgressBar(progress);
-    }
-
-    updateProgressBar(progress) {
-        const progressBar = document.querySelector('.progress-bar');
-        if (progressBar) {
-            progressBar.style.width = `${progress}%`;
-            progressBar.setAttribute('aria-valuenow', progress);
-        }
-    }
-
-    initializeProgress() {
-        const currentModule = this.getCurrentModule();
-        if (currentModule) {
-            const progress = this.progress[currentModule] || 0;
-            this.updateProgressBar(progress);
-        }
-    }
-
-    getCurrentModule() {
-        const path = window.location.pathname;
-        const moduleMatch = path.match(/modules\/(\w+)\.html/);
-        return moduleMatch ? moduleMatch[1] : null;
-    }
-
-    trackScroll() {
-        if (!this.getCurrentModule()) return;
-
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    this.calculateProgress();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-    }
-
-    calculateProgress() {
-        const sections = document.querySelectorAll('.module-section');
-        if (!sections.length) return;
-
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight - windowHeight;
-        const scrolled = window.scrollY;
-        
-        let progress = Math.min(Math.round((scrolled / documentHeight) * 100), 100);
-        this.saveProgress(this.getCurrentModule(), progress);
-    }
+// Navigation Helpers
+function navigateToEmergency() {
+    window.location.href = 'emergency.html';
 }
 
-// Smooth scroll for navigation
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize module progress tracking
-    new ModuleProgress();
+function navigateToTraining() {
+    window.location.href = 'training.html';
+}
 
-    // Smooth scroll for in-page navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Initialize tooltips
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
+// Initialize tooltips and popovers
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Bootstrap tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // Handle video playback
-    const videoFrames = document.querySelectorAll('iframe[src*="youtube"]');
-    videoFrames.forEach(frame => {
-        frame.addEventListener('load', () => {
-            // Add YouTube API parameters
-            if (frame.src.indexOf('enablejsapi=1') === -1) {
-                frame.src += (frame.src.indexOf('?') === -1 ? '?' : '&') + 'enablejsapi=1';
-            }
-        });
+    // Initialize Bootstrap popovers
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    popoverTriggerList.map(function(popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
     });
+});
 
-    // Handle sidebar navigation highlighting
-    const sidebarLinks = document.querySelectorAll('.sidebar .nav-link');
-    if (sidebarLinks.length) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5
-        };
+// Handle mobile navigation
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    sidebarLinks.forEach(link => {
-                        if (link.getAttribute('href') === '#' + entry.target.id) {
-                            link.classList.add('active');
-                        } else {
-                            link.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', function() {
+            navbarCollapse.classList.toggle('show');
+        });
 
-        document.querySelectorAll('.module-section').forEach(section => {
-            observer.observe(section);
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navbarCollapse.contains(event.target) && !navbarToggler.contains(event.target)) {
+                navbarCollapse.classList.remove('show');
+            }
         });
     }
 });
 
-// Handle downloads
-function handleDownload(event, resourceType) {
-    event.preventDefault();
-    const currentModule = new ModuleProgress().getCurrentModule();
+// Add active state to current navigation item
+function setActiveNavItem() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-link');
     
-    // Log download activity
-    console.log(`Downloading ${resourceType} for module: ${currentModule}`);
-    
-    // Here you would typically trigger the actual download
-    // For now, we'll just show an alert
-    alert(`Downloading ${resourceType}... This feature will be implemented soon.`);
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 }
+
+// Initialize page-specific features
+document.addEventListener('DOMContentLoaded', function() {
+    setActiveNavItem();
+});
+
+// Page Navigation System
+const pages = {
+    home: document.getElementById('homePage'),
+    emergency: document.getElementById('emergencyPage')
+};
+
+function navigateToPage(pageName) {
+    // Hide all pages
+    Object.values(pages).forEach(page => {
+        if (page) page.style.display = 'none';
+    });
+
+    // Show requested page
+    if (pages[pageName]) {
+        pages[pageName].style.display = 'block';
+        // Update URL
+        history.pushState({ page: pageName }, '', `${pageName}.html`);
+    }
+}
+
+// Handle browser back/forward
+window.addEventListener('popstate', (event) => {
+    const pageName = event.state?.page || 'home';
+    navigateToPage(pageName);
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Set initial page based on URL
+    const path = window.location.pathname;
+    const pageName = path.includes('emergency') ? 'emergency' : 'home';
+    navigateToPage(pageName);
+});

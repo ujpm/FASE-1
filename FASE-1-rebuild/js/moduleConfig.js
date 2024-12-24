@@ -123,6 +123,102 @@ const moduleConfig = {
                     content: 'Learn how to assess patients in emergency situations.'
                 }
             ]
+        },
+        'basic_life_support': {
+            id: 'basic_life_support',
+            title: 'Basic Life Support',
+            description: 'Learn essential life-saving techniques including CPR, rescue breathing, and AED use.',
+            icon: 'fa-heart',
+            difficulty: 'Beginner',
+            duration: '2 hours',
+            featured: true,
+            prerequisites: [],
+            topics: [
+                'CPR Basics',
+                'Rescue Breathing',
+                'AED Usage',
+                'Recovery Position'
+            ]
+        },
+        'first_aid': {
+            id: 'first_aid',
+            title: 'First Aid Fundamentals',
+            description: 'Master the basics of first aid including wound care, bandaging, and emergency response.',
+            icon: 'fa-kit-medical',
+            difficulty: 'Beginner',
+            duration: '3 hours',
+            featured: true,
+            prerequisites: [],
+            topics: [
+                'Wound Care',
+                'Bandaging Techniques',
+                'Burns Treatment',
+                'Emergency Response'
+            ]
+        },
+        'cardiac_care': {
+            id: 'cardiac_care',
+            title: 'Cardiac Emergency Response',
+            description: 'Advanced cardiac emergency response techniques and protocols.',
+            icon: 'fa-heartbeat',
+            difficulty: 'Advanced',
+            duration: '4 hours',
+            featured: true,
+            prerequisites: ['basic_life_support'],
+            topics: [
+                'Heart Attack Signs',
+                'Chest Pain Management',
+                'Cardiac Arrest Response',
+                'Post-Cardiac Care'
+            ]
+        },
+        'trauma_care': {
+            id: 'trauma_care',
+            title: 'Trauma Care',
+            description: 'Handle severe trauma cases including fractures, bleeding, and head injuries.',
+            icon: 'fa-bone',
+            difficulty: 'Intermediate',
+            duration: '3 hours',
+            featured: false,
+            prerequisites: ['first_aid'],
+            topics: [
+                'Fracture Management',
+                'Severe Bleeding Control',
+                'Head Injury Care',
+                'Spinal Injury Precautions'
+            ]
+        },
+        'pediatric_emergencies': {
+            id: 'pediatric_emergencies',
+            title: 'Pediatric Emergencies',
+            description: 'Specialized care for infants and children in emergency situations.',
+            icon: 'fa-child',
+            difficulty: 'Intermediate',
+            duration: '3 hours',
+            featured: false,
+            prerequisites: ['basic_life_support', 'first_aid'],
+            topics: [
+                'Infant CPR',
+                'Choking Response',
+                'Pediatric Injuries',
+                'Child Medical Emergencies'
+            ]
+        },
+        'environmental_emergencies': {
+            id: 'environmental_emergencies',
+            title: 'Environmental Emergencies',
+            description: 'Handle emergencies caused by environmental factors like heat, cold, and altitude.',
+            icon: 'fa-mountain-sun',
+            difficulty: 'Intermediate',
+            duration: '2 hours',
+            featured: false,
+            prerequisites: ['first_aid'],
+            topics: [
+                'Heat Exhaustion/Stroke',
+                'Hypothermia',
+                'Altitude Sickness',
+                'Water Emergencies'
+            ]
         }
     },
 
@@ -207,6 +303,37 @@ const ModuleHelper = {
     }
 };
 
+// Helper function to get featured modules
+function getFeaturedModules() {
+    return Object.values(moduleConfig.modules).filter(module => module.featured);
+}
+
+// Helper function to get all modules
+function getAllModules() {
+    return Object.values(moduleConfig.modules);
+}
+
+// Helper function to get a specific module
+function getModule(moduleId) {
+    return moduleConfig.modules[moduleId];
+}
+
+// Helper function to check if prerequisites are completed
+function checkPrerequisites(moduleId) {
+    const module = moduleConfig.modules[moduleId];
+    if (!module) return false;
+    
+    // In a real app, you'd check user's completed modules
+    // For now, we'll just return true
+    return true;
+}
+
 // Export the configuration and helper
 window.moduleConfig = moduleConfig;
 window.ModuleHelper = ModuleHelper;
+window.moduleSystem = {
+    getFeaturedModules,
+    getAllModules,
+    getModule,
+    checkPrerequisites
+};

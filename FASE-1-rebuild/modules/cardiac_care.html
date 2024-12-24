@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiac Emergency Response - FASE-1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><i class="fas fa-heartbeat"></i> FASE-1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../training.html">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#emergency">Emergency</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Module Content -->
+    <div class="module-content">
+        <div class="container py-5">
+            <div class="module-header mb-5">
+                <h1><i class="fas fa-heartbeat"></i> Cardiac Emergency Response</h1>
+                <div class="module-meta">
+                    <span class="badge bg-primary me-2">
+                        <i class="fas fa-clock"></i> 4 hours
+                    </span>
+                    <span class="badge bg-secondary">
+                        <i class="fas fa-layer-group"></i> Advanced
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Module Navigation -->
+                    <div class="module-nav card">
+                        <div class="card-body">
+                            <h5 class="card-title">Course Content</h5>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 0%" id="moduleProgress"></div>
+                            </div>
+                            <ul class="nav flex-column" id="moduleNav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#intro">Introduction</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#signs">Heart Attack Signs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#management">Chest Pain Management</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#arrest">Cardiac Arrest Response</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <!-- Module Sections -->
+                    <div class="module-sections">
+                        <!-- Introduction Section -->
+                        <section id="intro" class="module-section active">
+                            <h2>Introduction to Cardiac Emergency Response</h2>
+                            <p>This advanced module builds upon basic life support skills to provide comprehensive training in cardiac emergency response.</p>
+                            
+                            <div class="prerequisites alert alert-warning mt-4">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Prerequisites</h4>
+                                <p>Before starting this module, ensure you have completed:</p>
+                                <ul>
+                                    <li>Basic Life Support Module</li>
+                                </ul>
+                            </div>
+
+                            <div class="learning-objectives mt-4">
+                                <h4>Learning Objectives</h4>
+                                <ul>
+                                    <li>Recognize early signs of heart attack and cardiac arrest</li>
+                                    <li>Learn advanced cardiac life support techniques</li>
+                                    <li>Master chest pain assessment and management</li>
+                                    <li>Understand post-cardiac care procedures</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- Heart Attack Signs Section -->
+                        <section id="signs" class="module-section">
+                            <h2>Heart Attack Signs and Symptoms</h2>
+                            
+                            <div class="alert alert-info">
+                                <strong>Key Point:</strong> Early recognition of heart attack symptoms can save lives.
+                            </div>
+
+                            <div class="symptoms-list mt-4">
+                                <h4>Common Symptoms</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h5><i class="fas fa-exclamation-circle text-danger"></i> Primary Signs</h5>
+                                                <ul>
+                                                    <li>Chest pain or pressure</li>
+                                                    <li>Shortness of breath</li>
+                                                    <li>Cold sweats</li>
+                                                    <li>Nausea</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h5><i class="fas fa-info-circle text-warning"></i> Secondary Signs</h5>
+                                                <ul>
+                                                    <li>Arm or jaw pain</li>
+                                                    <li>Fatigue</li>
+                                                    <li>Light-headedness</li>
+                                                    <li>Back pain</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="case-study mt-4">
+                                <h4>Case Study: Recognition and Response</h4>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p>Read the following scenario and identify the heart attack symptoms:</p>
+                                        <blockquote class="blockquote">
+                                            <p>John, 55, was working in his garden when he started feeling pressure in his chest. 
+                                            He was sweating more than usual and felt pain radiating down his left arm. 
+                                            He sat down to rest, thinking it was just from working too hard.</p>
+                                        </blockquote>
+                                        <div class="mt-3">
+                                            <button class="btn btn-primary" onclick="showCaseStudyAnalysis()">
+                                                Show Analysis
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Chest Pain Management Section -->
+                        <section id="management" class="module-section">
+                            <h2>Chest Pain Management</h2>
+                            
+                            <div class="management-steps mt-4">
+                                <h4>Initial Assessment Steps</h4>
+                                <ol>
+                                    <li>
+                                        <h5>Position the Patient</h5>
+                                        <p>Help the person into a comfortable position, typically sitting up.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Assess Vital Signs</h5>
+                                        <p>Check pulse, breathing rate, and blood pressure if equipment is available.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Gather Information</h5>
+                                        <p>Ask about pain characteristics, medical history, and current medications.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Provide Immediate Care</h5>
+                                        <p>Follow protocols for medication administration if trained and authorized.</p>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="pain-assessment mt-4">
+                                <h4>Pain Assessment Tools</h4>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5>OPQRST Assessment</h5>
+                                        <ul>
+                                            <li><strong>O</strong>nset - When did it begin?</li>
+                                            <li><strong>P</strong>rovocation - What makes it worse/better?</li>
+                                            <li><strong>Q</strong>uality - What does it feel like?</li>
+                                            <li><strong>R</strong>adiation - Does it spread?</li>
+                                            <li><strong>S</strong>everity - How bad is it?</li>
+                                            <li><strong>T</strong>ime - How long has it lasted?</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Cardiac Arrest Response Section -->
+                        <section id="arrest" class="module-section">
+                            <h2>Cardiac Arrest Response</h2>
+                            
+                            <div class="response-protocol mt-4">
+                                <h4>High-Quality CPR for Healthcare Providers</h4>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Compression Technique</h5>
+                                                <ul>
+                                                    <li>Rate: 100-120 compressions per minute</li>
+                                                    <li>Depth: 2-2.4 inches (5-6 cm)</li>
+                                                    <li>Allow full chest recoil</li>
+                                                    <li>Minimize interruptions</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Ventilation</h5>
+                                                <ul>
+                                                    <li>30:2 compression-to-ventilation ratio</li>
+                                                    <li>Each breath delivered over 1 second</li>
+                                                    <li>Visible chest rise with each breath</li>
+                                                    <li>Avoid excessive ventilation</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="team-dynamics mt-4">
+                                <h4>Team-Based Response</h4>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5>Roles and Responsibilities</h5>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Role</th>
+                                                        <th>Primary Responsibilities</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Team Leader</td>
+                                                        <td>Coordinate response, make treatment decisions</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Compressor</td>
+                                                        <td>Perform chest compressions</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Airway Manager</td>
+                                                        <td>Manage airway and provide ventilation</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Medication Manager</td>
+                                                        <td>Prepare and administer medications</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Final Assessment -->
+                            <div class="assessment mt-4">
+                                <h4>Knowledge Check</h4>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form id="cardiacQuiz">
+                                            <div class="mb-3">
+                                                <p><strong>What is the correct compression rate for adult CPR?</strong></p>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q1" value="1">
+                                                    <label class="form-check-label">80-100 compressions per minute</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q1" value="2">
+                                                    <label class="form-check-label">100-120 compressions per minute</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q1" value="3">
+                                                    <label class="form-check-label">120-140 compressions per minute</label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Check Answer</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="module-navigation mt-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-outline-primary" id="prevSection">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button class="btn btn-primary" id="nextSection">
+                                    Next <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>FASE-1</h4>
+                    <p>Empowering communities through emergency response training</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>© 2024 FASE-1. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/moduleConfig.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setupModuleNavigation();
+            setupQuiz();
+            setupCaseStudy();
+        });
+
+        function setupModuleNavigation() {
+            const sections = document.querySelectorAll('.module-section');
+            const navLinks = document.querySelectorAll('#moduleNav .nav-link');
+            const prevButton = document.getElementById('prevSection');
+            const nextButton = document.getElementById('nextSection');
+            let currentSectionIndex = 0;
+
+            // Hide all sections except the first one
+            sections.forEach((section, index) => {
+                if (index !== 0) section.style.display = 'none';
+            });
+
+            // Update progress bar
+            function updateProgress() {
+                const progress = ((currentSectionIndex + 1) / sections.length) * 100;
+                document.getElementById('moduleProgress').style.width = `${progress}%`;
+            }
+
+            // Navigation click handlers
+            navLinks.forEach((link, index) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showSection(index);
+                });
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (currentSectionIndex > 0) {
+                    showSection(currentSectionIndex - 1);
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentSectionIndex < sections.length - 1) {
+                    showSection(currentSectionIndex + 1);
+                }
+            });
+
+            function showSection(index) {
+                sections[currentSectionIndex].style.display = 'none';
+                navLinks[currentSectionIndex].classList.remove('active');
+                
+                sections[index].style.display = 'block';
+                navLinks[index].classList.add('active');
+                
+                currentSectionIndex = index;
+                updateProgress();
+                
+                // Update button states
+                prevButton.disabled = currentSectionIndex === 0;
+                nextButton.disabled = currentSectionIndex === sections.length - 1;
+                
+                // Scroll to top of section
+                sections[index].scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Initialize button states
+            prevButton.disabled = true;
+            updateProgress();
+        }
+
+        function setupQuiz() {
+            const quizForm = document.getElementById('cardiacQuiz');
+            if (quizForm) {
+                quizForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const answer = document.querySelector('input[name="q1"]:checked');
+                    if (answer && answer.value === '2') {
+                        alert('Correct! The proper rate is 100-120 compressions per minute.');
+                    } else {
+                        alert('Incorrect. The proper rate is 100-120 compressions per minute. Try again!');
+                    }
+                });
+            }
+        }
+
+        function setupCaseStudy() {
+            window.showCaseStudyAnalysis = function() {
+                alert('Analysis: This case shows classic heart attack symptoms:\n\n' +
+                      '1. Chest pressure\n' +
+                      '2. Excessive sweating\n' +
+                      '3. Pain radiation to left arm\n\n' +
+                      'Immediate action required: Call emergency services and begin cardiac assessment.');
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Life Support - FASE-1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><i class="fas fa-heartbeat"></i> FASE-1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../training.html">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#emergency">Emergency</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Module Content -->
+    <div class="module-content">
+        <div class="container py-5">
+            <div class="module-header mb-5">
+                <h1><i class="fas fa-heart"></i> Basic Life Support</h1>
+                <div class="module-meta">
+                    <span class="badge bg-primary me-2">
+                        <i class="fas fa-clock"></i> 2 hours
+                    </span>
+                    <span class="badge bg-secondary">
+                        <i class="fas fa-layer-group"></i> Beginner
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Module Navigation -->
+                    <div class="module-nav card">
+                        <div class="card-body">
+                            <h5 class="card-title">Course Content</h5>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 0%" id="moduleProgress"></div>
+                            </div>
+                            <ul class="nav flex-column" id="moduleNav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#intro">Introduction to BLS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#cpr">CPR Basics</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#rescue">Rescue Breathing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#aed">AED Usage</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <!-- Module Sections -->
+                    <div class="module-sections">
+                        <!-- Introduction Section -->
+                        <section id="intro" class="module-section active">
+                            <h2>Introduction to Basic Life Support</h2>
+                            <p>Basic Life Support (BLS) is a crucial first-aid skill that can mean the difference between life and death in emergency situations. This module will teach you the fundamental techniques and principles of BLS.</p>
+                            
+                            <div class="learning-objectives mt-4">
+                                <h4>Learning Objectives</h4>
+                                <ul>
+                                    <li>Understand the importance of quick response in emergencies</li>
+                                    <li>Learn to assess emergency situations safely</li>
+                                    <li>Master the basic techniques of CPR</li>
+                                    <li>Understand when and how to use an AED</li>
+                                </ul>
+                            </div>
+
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Note:</strong> Complete all sections to receive your certification.
+                            </div>
+                        </section>
+
+                        <!-- CPR Basics Section -->
+                        <section id="cpr" class="module-section">
+                            <h2>CPR Basics</h2>
+                            <p>Cardiopulmonary Resuscitation (CPR) is a lifesaving technique that's useful in many emergencies where someone's breathing or heartbeat has stopped.</p>
+                            
+                            <div class="technique-steps mt-4">
+                                <h4>Steps for CPR</h4>
+                                <ol>
+                                    <li>
+                                        <h5>Check the Scene and the Person</h5>
+                                        <p>Ensure the scene is safe and check if the person is responsive.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Call Emergency Services</h5>
+                                        <p>If the person is unresponsive, call emergency services immediately.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Check for Breathing</h5>
+                                        <p>Look for chest movement and listen for breathing sounds.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Begin Chest Compressions</h5>
+                                        <p>Place hands in the center of the chest and compress at least 2 inches deep at a rate of 100-120 compressions per minute.</p>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="video-demo mt-4">
+                                <h4>Video Demonstration</h4>
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="https://www.youtube.com/embed/demo-video-id" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Rescue Breathing Section -->
+                        <section id="rescue" class="module-section">
+                            <h2>Rescue Breathing</h2>
+                            <p>Rescue breathing provides oxygen to a person who is not breathing adequately on their own.</p>
+                            
+                            <div class="technique-steps mt-4">
+                                <h4>Rescue Breathing Steps</h4>
+                                <ol>
+                                    <li>
+                                        <h5>Open the Airway</h5>
+                                        <p>Tilt the head back and lift the chin to open the airway.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Check for Breathing</h5>
+                                        <p>Look, listen, and feel for breathing for no more than 10 seconds.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Give Rescue Breaths</h5>
+                                        <p>If not breathing, give two rescue breaths, watching for chest rise.</p>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="alert alert-warning mt-4">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <strong>Important:</strong> Always use a barrier device when performing rescue breathing.
+                            </div>
+                        </section>
+
+                        <!-- AED Usage Section -->
+                        <section id="aed" class="module-section">
+                            <h2>AED Usage</h2>
+                            <p>An Automated External Defibrillator (AED) is a portable device that checks heart rhythm and can send an electric shock to restore normal rhythm.</p>
+                            
+                            <div class="technique-steps mt-4">
+                                <h4>Steps for Using an AED</h4>
+                                <ol>
+                                    <li>
+                                        <h5>Power On the AED</h5>
+                                        <p>Turn on the AED and follow the voice prompts.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Attach Pads</h5>
+                                        <p>Place pads on bare chest according to the diagram on the pads.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Clear the Area</h5>
+                                        <p>Ensure no one is touching the person when analyzing rhythm.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Deliver Shock if Advised</h5>
+                                        <p>Press the shock button if instructed by the AED.</p>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="quiz-section mt-4">
+                                <h4>Knowledge Check</h4>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p>Test your understanding of AED usage:</p>
+                                        <form id="aedQuiz">
+                                            <div class="mb-3">
+                                                <p><strong>When should you use an AED?</strong></p>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q1" value="1">
+                                                    <label class="form-check-label">When someone is choking</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q1" value="2">
+                                                    <label class="form-check-label">When someone is unconscious and not breathing</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q1" value="3">
+                                                    <label class="form-check-label">When someone has a broken bone</label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Check Answer</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="module-navigation mt-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-outline-primary" id="prevSection">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button class="btn btn-primary" id="nextSection">
+                                    Next <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>FASE-1</h4>
+                    <p>Empowering communities through emergency response training</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>© 2024 FASE-1. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/moduleConfig.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setupModuleNavigation();
+            setupQuiz();
+        });
+
+        function setupModuleNavigation() {
+            const sections = document.querySelectorAll('.module-section');
+            const navLinks = document.querySelectorAll('#moduleNav .nav-link');
+            const prevButton = document.getElementById('prevSection');
+            const nextButton = document.getElementById('nextSection');
+            let currentSectionIndex = 0;
+
+            // Hide all sections except the first one
+            sections.forEach((section, index) => {
+                if (index !== 0) section.style.display = 'none';
+            });
+
+            // Update progress bar
+            function updateProgress() {
+                const progress = ((currentSectionIndex + 1) / sections.length) * 100;
+                document.getElementById('moduleProgress').style.width = `${progress}%`;
+            }
+
+            // Navigation click handlers
+            navLinks.forEach((link, index) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showSection(index);
+                });
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (currentSectionIndex > 0) {
+                    showSection(currentSectionIndex - 1);
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentSectionIndex < sections.length - 1) {
+                    showSection(currentSectionIndex + 1);
+                }
+            });
+
+            function showSection(index) {
+                sections[currentSectionIndex].style.display = 'none';
+                navLinks[currentSectionIndex].classList.remove('active');
+                
+                sections[index].style.display = 'block';
+                navLinks[index].classList.add('active');
+                
+                currentSectionIndex = index;
+                updateProgress();
+                
+                // Update button states
+                prevButton.disabled = currentSectionIndex === 0;
+                nextButton.disabled = currentSectionIndex === sections.length - 1;
+                
+                // Scroll to top of section
+                sections[index].scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Initialize button states
+            prevButton.disabled = true;
+            updateProgress();
+        }
+
+        function setupQuiz() {
+            const quizForm = document.getElementById('aedQuiz');
+            if (quizForm) {
+                quizForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const answer = document.querySelector('input[name="q1"]:checked');
+                    if (answer && answer.value === '2') {
+                        alert('Correct! An AED should be used when someone is unconscious and not breathing.');
+                    } else {
+                        alert('Incorrect. Try again!');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

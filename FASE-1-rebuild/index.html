@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FASE-1 Demo - First Savers Fast Servers</title>
+    <title>FASE-1 - First Aid Support & Education</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-heartbeat"></i> FASE-1</a>
@@ -18,10 +19,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="navigateToPage('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="training.html">Training</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#emergency">Emergency</a>
+                        <a class="nav-link" href="#" onclick="navigateToPage('emergency')">Emergency</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
@@ -31,134 +35,183 @@
         </div>
     </nav>
 
-    <div class="hero-section text-center">
-        <div class="container">
-            <h1>Empowering Local First Responders</h1>
-            <p class="lead">Saving lives through community-based emergency response</p>
-            <div class="cta-buttons">
-                <button class="btn btn-danger btn-lg pulse-button" onclick="scrollToSection('emergency')">
-                    Report Emergency
-                </button>
-                <button class="btn btn-primary btn-lg" onclick="window.location.href='training.html'">
-                    Start Training
-                </button>
+    <!-- Home Page -->
+    <div id="homePage">
+        <!-- Hero Section -->
+        <div class="hero-section text-center">
+            <div class="container">
+                <h1>Empowering Local First Responders</h1>
+                <p class="lead">Saving lives through community-based emergency response</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-danger btn-lg pulse-button" onclick="navigateToPage('emergency')">
+                        Report Emergency
+                    </button>
+                    <button class="btn btn-primary btn-lg" onclick="window.location.href='training.html'">
+                        Start Training
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Training Modules Section -->
+        <section class="featured-modules" id="training">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Featured Training Modules</h2>
+                    <a href="training.html" class="btn btn-outline-primary">View All Modules</a>
+                </div>
+                <div class="row" id="featuredModules">
+                    <!-- Featured modules will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section bg-light">
+            <div class="container">
+                <h2>About FASE-1</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Our Mission</h3>
+                        <p>Empowering communities through emergency response training and support.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <h4>150+</h4>
+                                <p>Trained Responders</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>75+</h4>
+                                <p>Emergencies Handled</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>25+</h4>
+                                <p>Communities Served</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h4>Works Offline</h4>
+                                <p>Access training materials without internet</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-language"></i>
+                                <h4>Multi-language</h4>
+                                <p>Available in multiple local languages</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-comments"></i>
+                                <h4>SMS Support</h4>
+                                <p>Report emergencies via SMS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Emergency Page -->
+    <div id="emergencyPage" style="display: none;">
+        <div class="emergency-header bg-danger text-white py-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    <h1><i class="fas fa-exclamation-triangle"></i> Emergency Response</h1>
+                    <p class="mb-0">Select the type of emergency you're reporting</p>
+                </div>
+                <button class="btn-close btn-close-white" onclick="closeEmergencyModal()"></button>
+            </div>
+        </div>
+        
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="emergency-types">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <button class="emergency-type w-100" onclick="showEmergencyForm('medical')">
+                                    <i class="fas fa-user-md fa-3x mb-3"></i>
+                                    <h3>Medical</h3>
+                                    <p>Medical emergencies and first aid</p>
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="emergency-type w-100" onclick="showEmergencyForm('accident')">
+                                    <i class="fas fa-car-crash fa-3x mb-3"></i>
+                                    <h3>Accident</h3>
+                                    <p>Vehicle accidents and collisions</p>
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="emergency-type w-100" onclick="showEmergencyForm('fire')">
+                                    <i class="fas fa-fire fa-3x mb-3"></i>
+                                    <h3>Fire</h3>
+                                    <p>Fire emergencies and evacuation</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="emergency-form" class="mt-5" style="display: none;">
+                        <!-- Emergency form will be loaded here -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <section id="emergency" class="section">
-        <div class="container">
-            <h2>Emergency Response</h2>
-            <div class="demo-emergency-panel">
-                <div class="emergency-types">
-                    <button class="emergency-type" onclick="showEmergencyForm('medical')">
-                        <i class="fas fa-user-md"></i>
-                        Medical
-                    </button>
-                    <button class="emergency-type" onclick="showEmergencyForm('accident')">
-                        <i class="fas fa-car-crash"></i>
-                        Accident
-                    </button>
-                    <button class="emergency-type" onclick="showEmergencyForm('fire')">
-                        <i class="fas fa-fire"></i>
-                        Fire
-                    </button>
-                </div>
-                <div id="emergency-form" style="display: none;">
-                    <!-- Emergency form will be loaded here -->
+    <!-- Emergency Modal -->
+    <div id="emergencyModal" class="modal-fullscreen">
+        <div class="emergency-content">
+            <div class="emergency-header bg-danger text-white py-4">
+                <div class="container d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1><i class="fas fa-exclamation-triangle"></i> Emergency Response</h1>
+                        <p class="mb-0">Select the type of emergency you're reporting</p>
+                    </div>
+                    <button class="btn-close btn-close-white" onclick="closeEmergencyModal()"></button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="training" class="section">
-        <div class="container">
-            <h2>Training Modules</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="training-card">
-                        <div class="card-icon">
-                            <i class="fas fa-heart"></i>
+            
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="emergency-types">
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <button class="emergency-type w-100" onclick="showEmergencyForm('medical')">
+                                        <i class="fas fa-user-md fa-3x mb-3"></i>
+                                        <h3>Medical</h3>
+                                        <p>Medical emergencies and first aid</p>
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="emergency-type w-100" onclick="showEmergencyForm('accident')">
+                                        <i class="fas fa-car-crash fa-3x mb-3"></i>
+                                        <h3>Accident</h3>
+                                        <p>Vehicle accidents and collisions</p>
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="emergency-type w-100" onclick="showEmergencyForm('fire')">
+                                        <i class="fas fa-fire fa-3x mb-3"></i>
+                                        <h3>Fire</h3>
+                                        <p>Fire emergencies and evacuation</p>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Basic Life Support</h3>
-                        <p>Learn essential life-saving techniques</p>
-                        <button class="btn btn-outline-primary" onclick="startTraining('basic')">
-                            Start Module
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="training-card">
-                        <div class="card-icon">
-                            <i class="fas fa-ambulance"></i>
-                        </div>
-                        <h3>Emergency Response</h3>
-                        <p>Handle common emergency situations</p>
-                        <button class="btn btn-outline-primary" onclick="startTraining('emergency')">
-                            Start Module
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="training-card">
-                        <div class="card-icon">
-                            <i class="fas fa-hospital"></i>
-                        </div>
-                        <h3>Advanced Care</h3>
-                        <p>Advanced medical response techniques</p>
-                        <button class="btn btn-outline-primary" onclick="startTraining('advanced')">
-                            Start Module
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section bg-light">
-        <div class="container">
-            <h2>About FASE-1</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Our Mission</h3>
-                    <p>Empowering communities through emergency response training and support.</p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h4>150+</h4>
-                            <p>Trained Responders</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>75+</h4>
-                            <p>Emergencies Handled</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>25+</h4>
-                            <p>Communities Served</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="feature-list">
-                        <div class="feature-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h4>Works Offline</h4>
-                            <p>Access training materials without internet</p>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-language"></i>
-                            <h4>Multi-language</h4>
-                            <p>Available in multiple local languages</p>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-comments"></i>
-                            <h4>SMS Support</h4>
-                            <p>Report emergencies via SMS</p>
+                        
+                        <div id="emergency-form" class="mt-5" style="display: none;">
+                            <!-- Emergency form will be loaded here -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Training Module Modal -->
     <div class="modal fade" id="trainingModal" tabindex="-1">
@@ -195,5 +248,176 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/demo.js"></script>
+    <script>
+        function navigateToPage(page) {
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('emergencyPage').style.display = 'none';
+            document.getElementById(page + 'Page').style.display = 'block';
+        }
+
+        function openEmergencyModal() {
+            document.getElementById('emergencyModal').classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            // Update URL without page reload
+            window.history.pushState({page: 'emergency'}, 'Emergency Response', '#emergency');
+        }
+
+        function closeEmergencyModal() {
+            document.getElementById('emergencyModal').classList.remove('show');
+            document.body.style.overflow = ''; // Restore scrolling
+            // Reset URL
+            window.history.pushState({page: 'main'}, 'Home', window.location.pathname);
+        }
+
+        function showEmergencyForm(type) {
+            const formContainer = document.getElementById('emergency-form');
+            formContainer.style.display = 'block';
+            formContainer.innerHTML = getEmergencyForm(type);
+            
+            // Scroll to form
+            formContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function getEmergencyForm(type) {
+            const forms = {
+                medical: `
+                    <h3 class="mb-4">Medical Emergency Report</h3>
+                    <form onsubmit="submitEmergency(event, 'medical')">
+                        <div class="form-group mb-3">
+                            <label>Nature of Medical Emergency</label>
+                            <select class="form-select" required>
+                                <option value="">Select type...</option>
+                                <option value="cardiac">Cardiac</option>
+                                <option value="respiratory">Respiratory</option>
+                                <option value="trauma">Trauma</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Location</label>
+                            <input type="text" class="form-control" placeholder="Enter location" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Patient Condition</label>
+                            <textarea class="form-control" rows="3" placeholder="Describe the patient's condition" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-lg w-100">Submit Emergency Report</button>
+                    </form>
+                `,
+                accident: `
+                    <h3 class="mb-4">Accident Emergency Report</h3>
+                    <form onsubmit="submitEmergency(event, 'accident')">
+                        <div class="form-group mb-3">
+                            <label>Type of Accident</label>
+                            <select class="form-select" required>
+                                <option value="">Select type...</option>
+                                <option value="vehicle">Vehicle Collision</option>
+                                <option value="pedestrian">Pedestrian Involved</option>
+                                <option value="workplace">Workplace Accident</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Location</label>
+                            <input type="text" class="form-control" placeholder="Enter location" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Number of People Involved</label>
+                            <input type="number" class="form-control" min="1" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Situation Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Describe the accident" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-lg w-100">Submit Emergency Report</button>
+                    </form>
+                `,
+                fire: `
+                    <h3 class="mb-4">Fire Emergency Report</h3>
+                    <form onsubmit="submitEmergency(event, 'fire')">
+                        <div class="form-group mb-3">
+                            <label>Type of Fire</label>
+                            <select class="form-select" required>
+                                <option value="">Select type...</option>
+                                <option value="structure">Structure Fire</option>
+                                <option value="vehicle">Vehicle Fire</option>
+                                <option value="wildfire">Wildfire</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Location</label>
+                            <input type="text" class="form-control" placeholder="Enter location" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>People at Risk</label>
+                            <input type="number" class="form-control" min="0" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Situation Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Describe the fire situation" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-lg w-100">Submit Emergency Report</button>
+                    </form>
+                `
+            };
+            return forms[type] || '';
+        }
+
+        function submitEmergency(event, type) {
+            event.preventDefault();
+            // Here you would handle the emergency submission
+            alert('Emergency reported. Help is on the way!');
+            closeEmergencyModal();
+        }
+
+        // Handle browser back button
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.page === 'main') {
+                closeEmergencyModal();
+            }
+        });
+
+        // Load featured modules
+        document.addEventListener('DOMContentLoaded', function() {
+            const featuredContainer = document.getElementById('featuredModules');
+            const featuredModules = window.moduleSystem.getFeaturedModules();
+            
+            featuredModules.forEach(module => {
+                const moduleCard = createModuleCard(module);
+                featuredContainer.appendChild(moduleCard);
+            });
+        });
+
+        function createModuleCard(module) {
+            const col = document.createElement('div');
+            col.className = 'col-md-4 mb-4';
+            
+            col.innerHTML = `
+                <div class="card module-card h-100">
+                    <div class="card-body">
+                        <div class="module-icon mb-3">
+                            <i class="fas ${module.icon} fa-2x"></i>
+                        </div>
+                        <h3 class="card-title">${module.title}</h3>
+                        <p class="card-text">${module.description}</p>
+                        <div class="module-meta">
+                            <span class="badge bg-primary me-2">
+                                <i class="fas fa-clock me-1"></i> ${module.duration}
+                            </span>
+                            <span class="badge bg-secondary">
+                                <i class="fas fa-layer-group me-1"></i> ${module.difficulty}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <a href="modules/${module.id}.html" class="btn btn-primary w-100">Start Module</a>
+                    </div>
+                </div>
+            `;
+            
+            return col;
+        }
+    </script>
 </body>
 </html>
