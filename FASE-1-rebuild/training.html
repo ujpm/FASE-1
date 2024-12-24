@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Modules - FASE-1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .module-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .progress-small {
+            height: 5px;
+        }
+        .module-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--bs-primary);
+        }
+        .completion-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        .prerequisites {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        .locked-module {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .locked-module::after {
+            content: '\f023';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-heartbeat"></i> FASE-1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="training.html">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#emergency">Emergency</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Training Modules Section -->
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Training Modules</h1>
+        
+        <!-- Module Search and Filter -->
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" id="moduleSearch" placeholder="Search modules...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Modules Grid -->
+        <div class="row g-4" id="modulesGrid">
+            <!-- Modules will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>© 2024 FASE-1. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/moduleConfig.js"></script>
+    <script src="js/courseManager.js"></script>
+    <script>
+        // Initialize course manager
+        const courseManager = new CourseManager();
+
+        // Function to create module card
+        function createModuleCard(module) {
+            const progress = courseManager.getModuleProgress(module.id);
+            const isAvailable = ModuleHelper.isModuleAvailable(module.id, courseManager.getAllProgress());
+            const moduleResources = ModuleHelper.getModuleResources(module.id);
+            
+            const cardHtml = `
+                <div class="col-md-6 col-lg-4 module-item" data-module-id="${module.id}">
+                    <div class="card h-100 module-card ${!isAvailable ? 'locked-module' : ''}" 
+                         onclick="window.location.href='${moduleResources.path}'">
+                        <div class="card-body text-center">
+                            <span class="completion-badge ${progress === 100 ? 'bg-success' : 'bg-primary'}">
+                                ${progress}% Complete
+                            </span>
+                            <div class="module-icon">
+                                <i class="fas ${getModuleIcon(module.id)}"></i>
+                            </div>
+                            <h5 class="card-title">${module.title}</h5>
+                            <p class="card-text">${module.description}</p>
+                            <div class="progress progress-small mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: ${progress}%"></div>
+                            </div>
+                            ${getPrerequisitesHtml(module.id)}
+                        </div>
+                    </div>
+                </div>
+            `;
+            return cardHtml;
+        }
+
+        // Get module icon based on module ID
+        function getModuleIcon(moduleId) {
+            const icons = {
+                'cardiac': 'fa-heart',
+                'trauma': 'fa-band-aid',
+                'basic-life-support': 'fa-star-of-life'
+                // Add more icons as needed
+            };
+            return icons[moduleId] || 'fa-book-medical';
+        }
+
+        // Get prerequisites HTML
+        function getPrerequisitesHtml(moduleId) {
+            const prerequisites = moduleConfig.prerequisites[moduleId];
+            if (!prerequisites || prerequisites.length === 0) return '';
+
+            const prereqHtml = prerequisites.map(prereqId => {
+                const prereqModule = moduleConfig.modules[prereqId];
+                return prereqModule ? prereqModule.title : prereqId;
+            }).join(', ');
+
+            return `
+                <div class="prerequisites mt-2">
+                    <small><i class="fas fa-info-circle"></i> Prerequisites: ${prereqHtml}</small>
+                </div>
+            `;
+        }
+
+        // Populate modules grid
+        function populateModules() {
+            const modulesGrid = document.getElementById('modulesGrid');
+            const modules = ModuleHelper.getAllModules();
+            
+            modulesGrid.innerHTML = modules.map(module => createModuleCard(module)).join('');
+        }
+
+        // Search functionality
+        document.getElementById('moduleSearch').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.module-item').forEach(item => {
+                const title = item.querySelector('.card-title').textContent.toLowerCase();
+                const description = item.querySelector('.card-text').textContent.toLowerCase();
+                const matches = title.includes(searchTerm) || description.includes(searchTerm);
+                item.style.display = matches ? 'block' : 'none';
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            populateModules();
+        });
+    </script>
+</body>
+</html>
