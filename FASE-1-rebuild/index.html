@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASE-1 Demo - First Savers Fast Servers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-heartbeat"></i> FASE-1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#training">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#emergency">Emergency</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1>Empowering Local First Responders</h1>
+            <p class="lead">Saving lives through community-based emergency response</p>
+            <div class="cta-buttons">
+                <button class="btn btn-danger btn-lg pulse-button" onclick="scrollToSection('emergency')">
+                    Report Emergency
+                </button>
+                <button class="btn btn-primary btn-lg" onclick="scrollToSection('training')">
+                    Start Training
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section id="emergency" class="section">
+        <div class="container">
+            <h2>Emergency Response</h2>
+            <div class="demo-emergency-panel">
+                <div class="emergency-types">
+                    <button class="emergency-type" onclick="showEmergencyForm('medical')">
+                        <i class="fas fa-user-md"></i>
+                        Medical
+                    </button>
+                    <button class="emergency-type" onclick="showEmergencyForm('accident')">
+                        <i class="fas fa-car-crash"></i>
+                        Accident
+                    </button>
+                    <button class="emergency-type" onclick="showEmergencyForm('fire')">
+                        <i class="fas fa-fire"></i>
+                        Fire
+                    </button>
+                </div>
+                <div id="emergency-form" style="display: none;">
+                    <!-- Emergency form will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="training" class="section">
+        <div class="container">
+            <h2>Training Modules</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="training-card">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Basic Life Support</h3>
+                        <p>Learn essential life-saving techniques</p>
+                        <button class="btn btn-outline-primary" onclick="startTraining('basic')">
+                            Start Module
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="training-card">
+                        <div class="card-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <h3>Emergency Response</h3>
+                        <p>Handle common emergency situations</p>
+                        <button class="btn btn-outline-primary" onclick="startTraining('emergency')">
+                            Start Module
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="training-card">
+                        <div class="card-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Advanced Care</h3>
+                        <p>Advanced medical response techniques</p>
+                        <button class="btn btn-outline-primary" onclick="startTraining('advanced')">
+                            Start Module
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section bg-light">
+        <div class="container">
+            <h2>About FASE-1</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Our Mission</h3>
+                    <p>Empowering communities through emergency response training and support.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>150+</h4>
+                            <p>Trained Responders</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>75+</h4>
+                            <p>Emergencies Handled</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>25+</h4>
+                            <p>Communities Served</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Works Offline</h4>
+                            <p>Access training materials without internet</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-language"></i>
+                            <h4>Multi-language</h4>
+                            <p>Available in multiple local languages</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-comments"></i>
+                            <h4>SMS Support</h4>
+                            <p>Report emergencies via SMS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Module Modal -->
+    <div class="modal fade" id="trainingModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Training Module</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="training-content">
+                    <!-- Training content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>FASE-1</h5>
+                    <p>First Savers - Fast Servers</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/demo.js"></script>
+</body>
+</html>
