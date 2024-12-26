@@ -1,0 +1,178 @@
+/* Severe Bleeding Control Module Specific Styles */
+
+/* Module Header */
+.bleeding-header {
+    background: linear-gradient(rgba(220, 53, 69, 0.05), rgba(220, 53, 69, 0.1));
+    padding: 2rem 0;
+    border-radius: 10px;
+}
+
+/* Bleeding Types */
+.bleeding-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.bleeding-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-left: 4px solid var(--danger-color);
+}
+
+.bleeding-card h5 {
+    color: var(--danger-color);
+    border-bottom: 2px solid rgba(220, 53, 69, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Technique Steps */
+.control-steps {
+    counter-reset: step;
+}
+
+.control-steps li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.control-steps li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--danger-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Technique Demonstration */
+.technique-demo {
+    position: relative;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.technique-demo img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tourniquet Section */
+.tourniquet-guide {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.tourniquet-guide .time-warning {
+    background: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid var(--danger-color);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+/* Wound Packing */
+.packing-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.packing-step {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.packing-step i {
+    font-size: 2rem;
+    color: var(--danger-color);
+    margin-bottom: 1rem;
+}
+
+/* Quiz Section */
+.bleeding-quiz {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.bleeding-quiz .question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.bleeding-quiz .options {
+    display: grid;
+    gap: 1rem;
+}
+
+.bleeding-quiz .option {
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bleeding-quiz .option:hover {
+    background: rgba(220, 53, 69, 0.05);
+    border-color: var(--danger-color);
+}
+
+.bleeding-quiz .option.selected {
+    background: rgba(220, 53, 69, 0.1);
+    border-color: var(--danger-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .bleeding-types {
+        grid-template-columns: 1fr;
+    }
+
+    .packing-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .control-steps li {
+        padding-left: 2.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .control-steps li::before {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .bleeding-card {
+        break-inside: avoid;
+    }
+
+    .technique-demo {
+        break-inside: avoid;
+    }
+}

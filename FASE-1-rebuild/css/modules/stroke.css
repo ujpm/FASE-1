@@ -1,0 +1,240 @@
+/* Stroke Recognition Module Specific Styles */
+
+/* Module Header */
+.stroke-header {
+    background: linear-gradient(rgba(111, 66, 193, 0.05), rgba(111, 66, 193, 0.1));
+    padding: 2rem 0;
+    border-radius: 10px;
+}
+
+/* FAST Method */
+.fast-method {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.fast-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-left: 4px solid var(--purple);
+    text-align: center;
+}
+
+.fast-card h5 {
+    color: var(--purple);
+    border-bottom: 2px solid rgba(111, 66, 193, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.fast-card i {
+    font-size: 2.5rem;
+    color: var(--purple);
+    margin-bottom: 1rem;
+}
+
+/* Symptoms Grid */
+.symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.symptom-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.symptom-card i {
+    font-size: 2rem;
+    color: var(--purple);
+    margin-bottom: 1rem;
+}
+
+/* Response Steps */
+.response-steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+}
+
+.response-steps li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.response-steps li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--purple);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Time Window */
+.time-window {
+    background: rgba(111, 66, 193, 0.1);
+    border-left: 4px solid var(--purple);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.time-window h5 {
+    color: var(--purple);
+}
+
+/* Recovery Position */
+.recovery-guide {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.recovery-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.recovery-step {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recovery-step i {
+    font-size: 2rem;
+    color: var(--purple);
+    margin-bottom: 1rem;
+}
+
+/* Risk Factors */
+.risk-factors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.risk-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.risk-card h5 {
+    color: var(--purple);
+    border-bottom: 2px solid rgba(111, 66, 193, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Quiz Section */
+.stroke-quiz {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.stroke-quiz .question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.stroke-quiz .options {
+    display: grid;
+    gap: 1rem;
+}
+
+.stroke-quiz .option {
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stroke-quiz .option:hover {
+    background: rgba(111, 66, 193, 0.05);
+    border-color: var(--purple);
+}
+
+.stroke-quiz .option.selected {
+    background: rgba(111, 66, 193, 0.1);
+    border-color: var(--purple);
+}
+
+/* Prevention Tips */
+.prevention-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.prevention-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--purple);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .fast-method,
+    .symptoms-grid,
+    .prevention-tips {
+        grid-template-columns: 1fr;
+    }
+
+    .recovery-steps {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .response-steps li {
+        padding-left: 2.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .response-steps li::before {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .fast-card,
+    .symptom-card {
+        break-inside: avoid;
+    }
+
+    .time-window {
+        break-inside: avoid;
+    }
+}

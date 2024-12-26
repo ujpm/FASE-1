@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burns Care - FASE-1 Training</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/modules/burns.css" rel="stylesheet">
+</head>
+<body data-module-id="burns">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><i class="fas fa-heartbeat"></i> FASE-1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../training.html">Training</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Module Content -->
+    <div class="module-content">
+        <div class="container py-5">
+            <div class="module-header mb-5 burns-header">
+                <h1><i class="fas fa-fire-alt"></i> Burns Care</h1>
+                <div class="module-meta">
+                    <span class="badge bg-warning text-dark me-2">
+                        <i class="fas fa-clock"></i> 2 hours
+                    </span>
+                    <span class="badge bg-warning text-dark me-2">
+                        <i class="fas fa-layer-group"></i> Intermediate
+                    </span>
+                    <span class="badge bg-warning text-dark">
+                        <i class="fas fa-book"></i> 4 Topics
+                    </span>
+                </div>
+            </div>
+
+            <!-- Module Navigation -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="module-nav card sticky-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Contents</h5>
+                            <div class="progress mb-3 progress-small">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <nav class="nav flex-column">
+                                <a class="nav-link active" href="#types">Types of Burns</a>
+                                <a class="nav-link" href="#assessment">Burn Assessment</a>
+                                <a class="nav-link" href="#treatment">Treatment Steps</a>
+                                <a class="nav-link" href="#aftercare">Aftercare & Prevention</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="module-sections">
+                        <!-- Types Section -->
+                        <section id="types" class="module-section active">
+                            <h2>Types of Burns</h2>
+                            
+                            <div class="alert alert-warning">
+                                <strong>Important:</strong> Different types of burns require different approaches to treatment.
+                            </div>
+
+                            <div class="burns-types">
+                                <div class="burn-card">
+                                    <h5>Thermal Burns</h5>
+                                    <ul>
+                                        <li>Caused by heat sources</li>
+                                        <li>Common from fire/hot liquids</li>
+                                        <li>Immediate pain and redness</li>
+                                        <li>May form blisters</li>
+                                    </ul>
+                                </div>
+                                <div class="burn-card">
+                                    <h5>Chemical Burns</h5>
+                                    <ul>
+                                        <li>Caused by strong chemicals</li>
+                                        <li>Requires immediate washing</li>
+                                        <li>Can continue damaging</li>
+                                        <li>May not show immediately</li>
+                                    </ul>
+                                </div>
+                                <div class="burn-card">
+                                    <h5>Electrical Burns</h5>
+                                    <ul>
+                                        <li>From electrical current</li>
+                                        <li>May have entry/exit points</li>
+                                        <li>Internal damage possible</li>
+                                        <li>Requires medical attention</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="chemical-burns mt-4">
+                                <h5><i class="fas fa-exclamation-triangle"></i> Chemical Burns Special Care</h5>
+                                <p>For chemical burns, immediately:</p>
+                                <ul>
+                                    <li>Remove contaminated clothing</li>
+                                    <li>Flush with running water for at least 20 minutes</li>
+                                    <li>Do not attempt to neutralize the chemical</li>
+                                    <li>Seek immediate medical attention</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- Assessment Section -->
+                        <section id="assessment" class="module-section">
+                            <h2>Burn Assessment</h2>
+                            
+                            <div class="assessment-guide">
+                                <div class="assessment-item">
+                                    <i class="fas fa-ruler"></i>
+                                    <h5>Size</h5>
+                                    <p>Measure using palm method</p>
+                                </div>
+                                <div class="assessment-item">
+                                    <i class="fas fa-layer-group"></i>
+                                    <h5>Depth</h5>
+                                    <p>Determine burn degree</p>
+                                </div>
+                                <div class="assessment-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <h5>Location</h5>
+                                    <p>Note critical areas</p>
+                                </div>
+                                <div class="assessment-item">
+                                    <i class="fas fa-clock"></i>
+                                    <h5>Time</h5>
+                                    <p>Duration since injury</p>
+                                </div>
+                            </div>
+
+                            <div class="severity-scale">
+                                <h4>Burn Severity Scale</h4>
+                                <div class="severity-indicators">
+                                    <div class="severity-indicator mild">
+                                        <h5>First Degree</h5>
+                                        <ul>
+                                            <li>Affects epidermis only</li>
+                                            <li>Red and painful</li>
+                                            <li>No blisters</li>
+                                        </ul>
+                                    </div>
+                                    <div class="severity-indicator moderate">
+                                        <h5>Second Degree</h5>
+                                        <ul>
+                                            <li>Affects dermis</li>
+                                            <li>Blisters present</li>
+                                            <li>Very painful</li>
+                                        </ul>
+                                    </div>
+                                    <div class="severity-indicator severe">
+                                        <h5>Third Degree</h5>
+                                        <ul>
+                                            <li>Full thickness</li>
+                                            <li>White or charred</li>
+                                            <li>May be painless</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Treatment Section -->
+                        <section id="treatment" class="module-section">
+                            <h2>Treatment Steps</h2>
+                            
+                            <div class="alert alert-danger">
+                                <strong>Critical:</strong> For severe burns, call emergency services immediately.
+                            </div>
+
+                            <div class="technique-steps mt-4">
+                                <h4>Immediate Response</h4>
+                                <ol class="treatment-steps">
+                                    <li>
+                                        <h5>Stop the Burning</h5>
+                                        <p>Remove from heat source and cool the burn.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Cool the Burn</h5>
+                                        <p>Run cool (not cold) water for at least 10 minutes.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Remove Restrictions</h5>
+                                        <p>Take off jewelry and tight clothing near the burn.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Cover the Burn</h5>
+                                        <p>Use sterile, non-stick dressing or clean cloth.</p>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="first-aid-kit mt-4">
+                                <h4>Essential Supplies</h4>
+                                <div class="supply-item">
+                                    <i class="fas fa-band-aid"></i>
+                                    <h5>Dressings</h5>
+                                    <p>Non-stick sterile dressings</p>
+                                </div>
+                                <div class="supply-item">
+                                    <i class="fas fa-prescription-bottle"></i>
+                                    <h5>Antiseptic</h5>
+                                    <p>For wound cleaning</p>
+                                </div>
+                                <div class="supply-item">
+                                    <i class="fas fa-tape"></i>
+                                    <h5>Medical Tape</h5>
+                                    <p>To secure dressings</p>
+                                </div>
+                                <div class="supply-item">
+                                    <i class="fas fa-pills"></i>
+                                    <h5>Pain Relief</h5>
+                                    <p>Over-the-counter medication</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Aftercare Section -->
+                        <section id="aftercare" class="module-section">
+                            <h2>Aftercare & Prevention</h2>
+                            
+                            <div class="dos-donts">
+                                <div class="dos">
+                                    <h5>Do's</h5>
+                                    <ul>
+                                        <li>Keep the burn clean</li>
+                                        <li>Change dressings regularly</li>
+                                        <li>Take prescribed medications</li>
+                                        <li>Protect from sun exposure</li>
+                                    </ul>
+                                </div>
+                                <div class="donts">
+                                    <h5>Don'ts</h5>
+                                    <ul>
+                                        <li>Don't pop blisters</li>
+                                        <li>Don't use ice</li>
+                                        <li>Don't apply butter or oils</li>
+                                        <li>Don't use cotton wool</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="assessment mt-4">
+                                <h4>Knowledge Check</h4>
+                                <div class="burns-quiz">
+                                    <form id="burnsQuiz">
+                                        <div class="question">
+                                            <p><strong>What is the first step in treating a thermal burn?</strong></p>
+                                        </div>
+                                        <div class="options">
+                                            <div class="option">
+                                                <input class="form-check-input" type="radio" name="q1" value="1" id="option1">
+                                                <label class="form-check-label" for="option1">Apply ice to the burn</label>
+                                            </div>
+                                            <div class="option">
+                                                <input class="form-check-input" type="radio" name="q1" value="2" id="option2">
+                                                <label class="form-check-label" for="option2">Cool the burn with running water</label>
+                                            </div>
+                                            <div class="option">
+                                                <input class="form-check-input" type="radio" name="q1" value="3" id="option3">
+                                                <label class="form-check-label" for="option3">Apply butter or oil</label>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-warning mt-3" onclick="checkAnswer()">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>FASE-1 Training</h5>
+                    <p>Emergency First Aid Skills & Education</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2024 FASE-1. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/moduleConfig.js"></script>
+    <script src="../js/courseManager.js"></script>
+    <script src="../js/moduleNavigation.js"></script>
+    <script>
+        // Initialize Course Manager
+        const courseManager = new CourseManager();
+        courseManager.initializeModule('burns', 4); // 4 sections in this module
+
+        function checkAnswer() {
+            const answer = document.querySelector('input[name="q1"]:checked')?.value;
+            if (!answer) {
+                alert('Please select an answer.');
+                return;
+            }
+
+            if (answer === '2') {
+                alert('Correct! The first step is to cool the burn with cool running water for at least 10 minutes.');
+                courseManager.saveQuizScore('burns', 'quiz1', 100);
+            } else {
+                alert('Incorrect. Never use ice, butter, or oils on burns. Cool running water is the proper first step.');
+                courseManager.saveQuizScore('burns', 'quiz1', 0);
+            }
+        }
+
+        // Initialize Progress Tracking
+        const progressTracker = new ProgressTracker(courseManager);
+        progressTracker.startTracking();
+    </script>
+</body>
+</html>

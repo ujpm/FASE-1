@@ -1,0 +1,215 @@
+/* Asthma Attack Response Module Specific Styles */
+
+/* Module Header */
+.asthma-header {
+    background: linear-gradient(rgba(13, 202, 240, 0.05), rgba(13, 202, 240, 0.1));
+    padding: 2rem 0;
+    border-radius: 10px;
+}
+
+/* Severity Levels */
+.severity-levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.severity-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-left: 4px solid var(--info-color);
+}
+
+.severity-card h5 {
+    color: var(--info-color);
+    border-bottom: 2px solid rgba(13, 202, 240, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Symptoms Grid */
+.symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.symptom-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.symptom-card i {
+    font-size: 2rem;
+    color: var(--info-color);
+    margin-bottom: 1rem;
+}
+
+/* Response Steps */
+.response-steps {
+    counter-reset: step;
+}
+
+.response-steps li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.response-steps li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--info-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Inhaler Usage */
+.inhaler-guide {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.inhaler-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.inhaler-step {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.inhaler-step i {
+    font-size: 2rem;
+    color: var(--info-color);
+    margin-bottom: 1rem;
+}
+
+/* Prevention Tips */
+.prevention-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.prevention-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prevention-card h5 {
+    color: var(--info-color);
+    margin-bottom: 1rem;
+}
+
+.prevention-card i {
+    font-size: 1.5rem;
+    color: var(--info-color);
+    margin-right: 0.5rem;
+}
+
+/* Quiz Section */
+.asthma-quiz {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.asthma-quiz .question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.asthma-quiz .options {
+    display: grid;
+    gap: 1rem;
+}
+
+.asthma-quiz .option {
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.asthma-quiz .option:hover {
+    background: rgba(13, 202, 240, 0.05);
+    border-color: var(--info-color);
+}
+
+.asthma-quiz .option.selected {
+    background: rgba(13, 202, 240, 0.1);
+    border-color: var(--info-color);
+}
+
+/* Emergency Alert */
+.emergency-alert {
+    background: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid var(--danger-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .severity-levels,
+    .prevention-tips {
+        grid-template-columns: 1fr;
+    }
+
+    .symptoms-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .response-steps li {
+        padding-left: 2.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .response-steps li::before {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .severity-card,
+    .prevention-card {
+        break-inside: avoid;
+    }
+
+    .inhaler-guide {
+        break-inside: avoid;
+    }
+}

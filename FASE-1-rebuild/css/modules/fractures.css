@@ -1,0 +1,221 @@
+/* Fractures and Sprains Module Specific Styles */
+
+/* Module Header */
+.fractures-header {
+    background: linear-gradient(rgba(13, 202, 240, 0.05), rgba(13, 202, 240, 0.1));
+    padding: 2rem 0;
+    border-radius: 10px;
+}
+
+/* Injury Types */
+.injury-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.injury-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-left: 4px solid var(--info-color);
+}
+
+.injury-card h5 {
+    color: var(--info-color);
+    border-bottom: 2px solid rgba(13, 202, 240, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* RICE Method */
+.rice-method {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.rice-step {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rice-step i {
+    font-size: 2rem;
+    color: var(--info-color);
+    margin-bottom: 1rem;
+}
+
+/* Splinting Guide */
+.splinting-guide {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.splinting-steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+}
+
+.splinting-steps li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.splinting-steps li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--info-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Assessment Checklist */
+.assessment-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.checklist-item {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.checklist-item i {
+    font-size: 2rem;
+    color: var(--info-color);
+    margin-bottom: 1rem;
+}
+
+/* Transport Tips */
+.transport-tips {
+    background: rgba(13, 202, 240, 0.1);
+    border-left: 4px solid var(--info-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Quiz Section */
+.fractures-quiz {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.fractures-quiz .question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.fractures-quiz .options {
+    display: grid;
+    gap: 1rem;
+}
+
+.fractures-quiz .option {
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fractures-quiz .option:hover {
+    background: rgba(13, 202, 240, 0.05);
+    border-color: var(--info-color);
+}
+
+.fractures-quiz .option.selected {
+    background: rgba(13, 202, 240, 0.1);
+    border-color: var(--info-color);
+}
+
+/* Do's and Don'ts */
+.dos-donts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.dos, .donts {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dos {
+    border-left: 4px solid var(--success-color);
+}
+
+.donts {
+    border-left: 4px solid var(--danger-color);
+}
+
+.dos h5 {
+    color: var(--success-color);
+}
+
+.donts h5 {
+    color: var(--danger-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .injury-types,
+    .dos-donts {
+        grid-template-columns: 1fr;
+    }
+
+    .rice-method {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .splinting-steps li {
+        padding-left: 2.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .splinting-steps li::before {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .injury-card,
+    .rice-step {
+        break-inside: avoid;
+    }
+
+    .transport-tips {
+        break-inside: avoid;
+    }
+}

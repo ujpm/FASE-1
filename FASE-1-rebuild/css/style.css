@@ -246,36 +246,46 @@ body {
 
 /* Module Pages */
 .module-content {
-    min-height: calc(100vh - 56px - 100px); /* Account for navbar and footer */
+    padding: 2rem 0;
+    min-height: calc(100vh - 200px); /* Account for navbar and footer */
 }
 
 .module-header {
-    border-bottom: 1px solid #dee2e6;
     margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
 }
 
 .module-header h1 {
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.module-header .module-meta {
-    margin-bottom: 1rem;
+.module-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
 .module-nav {
     position: sticky;
-    top: 1rem;
+    top: 2rem;
+}
+
+.module-nav .card {
+    border: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .module-nav .nav-link {
-    color: var(--dark);
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    margin-bottom: 0.25rem;
+    color: var(--dark-color);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 .module-nav .nav-link:hover {
-    background-color: rgba(var(--primary-rgb), 0.1);
+    background-color: rgba(13, 110, 253, 0.1);
 }
 
 .module-nav .nav-link.active {
@@ -285,14 +295,29 @@ body {
 
 .module-section {
     display: none;
-    animation: fadeIn 0.3s ease;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .module-section.active {
     display: block;
+    opacity: 1;
 }
 
 .module-section h2 {
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+}
+
+.technique-steps {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.technique-steps h4 {
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
 
@@ -301,71 +326,102 @@ body {
 }
 
 .technique-steps h5 {
-    color: var(--primary-color);
+    color: var(--dark-color);
     margin-bottom: 0.5rem;
 }
 
 .video-demo {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
+    margin: 2rem 0;
 }
 
-.quiz-section .card {
+.video-demo img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.assessment {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.module-navigation {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.progress {
+    height: 0.5rem;
+    margin: 1rem 0;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+/* Quiz Styles */
+.quiz-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-check {
+    margin-bottom: 1rem;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Alert Styles */
+.alert {
     border: none;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.progress-circle {
-    width: 120px;
-    height: 120px;
-    background: #f8f9fa;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-}
-
-.progress-circle span {
-    font-size: 1.5rem;
-    font-weight: bold;
+.alert-info {
+    background-color: rgba(13, 110, 253, 0.1);
     color: var(--primary-color);
 }
 
-.case-study blockquote {
-    font-style: italic;
-    border-left: 4px solid var(--primary-color);
-    padding-left: 1rem;
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #856404;
 }
 
-.prerequisites {
-    border-left: 4px solid var(--warning-color);
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
 }
 
-.learning-objectives ul {
-    list-style-type: none;
-    padding-left: 0;
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
 }
 
-.learning-objectives ul li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
+.card-body {
+    padding: 1.5rem;
 }
 
-.learning-objectives ul li:before {
-    content: '✓';
-    color: var(--success-color);
-    position: absolute;
-    left: 0;
-}
-
+/* Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;

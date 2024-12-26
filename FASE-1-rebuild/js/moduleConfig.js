@@ -1,339 +1,206 @@
 // Module Configuration
 const moduleConfig = {
     modules: {
-        'cardiac': {
-            id: 'cardiac',
-            title: 'Cardiac Emergency Response',
-            description: 'Learn essential skills for responding to cardiac emergencies, including CPR and AED usage.',
-            prerequisites: [],
-            estimatedTime: '2 hours',
-            difficulty: 'Intermediate',
-            sections: [
-                {
-                    id: 'introduction',
-                    title: 'Introduction to Cardiac Emergencies',
-                    type: 'theory',
-                    content: 'Understanding cardiac emergencies and their signs.'
-                },
-                {
-                    id: 'cpr-basics',
-                    title: 'CPR Basics',
-                    type: 'theory',
-                    content: 'Learn proper CPR techniques and protocols.'
-                },
-                {
-                    id: 'cpr-practice',
-                    title: 'CPR Practice',
-                    type: 'interactive',
-                    content: 'Interactive CPR practice scenarios.'
-                },
-                {
-                    id: 'aed-usage',
-                    title: 'Using an AED',
-                    type: 'theory',
-                    content: 'Learn when and how to use an Automated External Defibrillator.'
-                },
-                {
-                    id: 'assessment',
-                    title: 'Knowledge Assessment',
-                    type: 'quiz',
-                    content: 'Test your understanding of cardiac emergency response.'
-                }
-            ],
-            quizzes: {
-                'final-assessment': {
-                    id: 'final-assessment',
-                    title: 'Final Assessment',
-                    passingScore: 80,
-                    questions: [
-                        {
-                            id: 1,
-                            question: 'What is the correct compression rate for adult CPR?',
-                            options: [
-                                '60-80 compressions per minute',
-                                '100-120 compressions per minute',
-                                '140-160 compressions per minute',
-                                '180-200 compressions per minute'
-                            ],
-                            correctAnswer: 1,
-                            explanation: 'The correct rate is 100-120 compressions per minute to ensure effective blood circulation.'
-                        },
-                        {
-                            id: 2,
-                            question: 'What is the correct depth for chest compressions in adult CPR?',
-                            options: [
-                                '1-2 inches',
-                                '2-2.4 inches',
-                                '3-4 inches',
-                                '4-5 inches'
-                            ],
-                            correctAnswer: 1,
-                            explanation: 'Compress at least 2 inches (5 cm) for an average adult.'
-                        }
-                    ]
-                }
-            }
-        },
-        'trauma': {
-            id: 'trauma',
-            title: 'Trauma Response',
-            description: 'Master the skills needed to respond to traumatic injuries effectively.',
-            prerequisites: ['basic-life-support'],
-            estimatedTime: '3 hours',
-            difficulty: 'Advanced',
-            sections: [
-                {
-                    id: 'introduction',
-                    title: 'Introduction to Trauma Care',
-                    type: 'theory',
-                    content: 'Understanding different types of trauma and initial assessment.'
-                },
-                {
-                    id: 'bleeding-control',
-                    title: 'Bleeding Control',
-                    type: 'theory',
-                    content: 'Learn techniques for controlling severe bleeding.'
-                },
-                {
-                    id: 'practical-scenarios',
-                    title: 'Practical Scenarios',
-                    type: 'interactive',
-                    content: 'Practice trauma response through interactive scenarios.'
-                }
-            ]
-        },
-        'basic-life-support': {
-            id: 'basic-life-support',
-            title: 'Basic Life Support',
-            description: 'Essential first aid and life support skills every first responder needs.',
-            prerequisites: [],
-            estimatedTime: '1.5 hours',
-            difficulty: 'Beginner',
-            sections: [
-                {
-                    id: 'introduction',
-                    title: 'Introduction to BLS',
-                    type: 'theory',
-                    content: 'Basic principles of life support and first aid.'
-                },
-                {
-                    id: 'assessment',
-                    title: 'Patient Assessment',
-                    type: 'interactive',
-                    content: 'Learn how to assess patients in emergency situations.'
-                }
-            ]
-        },
-        'basic_life_support': {
-            id: 'basic_life_support',
-            title: 'Basic Life Support',
-            description: 'Learn essential life-saving techniques including CPR, rescue breathing, and AED use.',
-            icon: 'fa-heart',
+        'cpr-aed': {
+            id: 'cpr-aed',
+            title: 'CPR & AED Use',
+            description: 'Learn essential life-saving techniques including Cardiopulmonary Resuscitation (CPR) and how to use an Automated External Defibrillator (AED).',
+            icon: 'fa-heartbeat',
             difficulty: 'Beginner',
             duration: '2 hours',
             featured: true,
             prerequisites: [],
             topics: [
-                'CPR Basics',
-                'Rescue Breathing',
-                'AED Usage',
-                'Recovery Position'
+                'Understanding Sudden Cardiac Arrest',
+                'Step-by-step CPR for Adults',
+                'CPR for Children and Infants',
+                'AED Usage and Safety'
             ]
         },
-        'first_aid': {
-            id: 'first_aid',
-            title: 'First Aid Fundamentals',
-            description: 'Master the basics of first aid including wound care, bandaging, and emergency response.',
-            icon: 'fa-kit-medical',
+        'choking': {
+            id: 'choking',
+            title: 'Choking Response',
+            description: 'Master the techniques to help choking victims, including the Heimlich maneuver for different age groups.',
+            icon: 'fa-hand-holding-medical',
             difficulty: 'Beginner',
-            duration: '3 hours',
+            duration: '1.5 hours',
             featured: true,
             prerequisites: [],
             topics: [
-                'Wound Care',
-                'Bandaging Techniques',
-                'Burns Treatment',
+                'Identifying Choking Signs',
+                'Heimlich Maneuver Technique',
+                'Helping Children and Infants',
+                'Post-choking Care'
+            ]
+        },
+        'bleeding-control': {
+            id: 'bleeding-control',
+            title: 'Severe Bleeding Control',
+            description: 'Learn effective techniques to control severe bleeding and prevent hemorrhage-related complications.',
+            icon: 'fa-droplet',
+            difficulty: 'Intermediate',
+            duration: '2 hours',
+            featured: true,
+            prerequisites: [],
+            topics: [
+                'Types of Bleeding',
+                'Pressure Application Techniques',
+                'Tourniquet Usage',
+                'Wound Packing'
+            ]
+        },
+        'seizures': {
+            id: 'seizures',
+            title: 'Seizure Management',
+            description: 'Understand how to safely manage seizures and protect the person from injury.',
+            icon: 'fa-brain',
+            difficulty: 'Intermediate',
+            duration: '1.5 hours',
+            featured: false,
+            prerequisites: [],
+            topics: [
+                'Types of Seizures',
+                'First Aid During Seizures',
+                'Post-seizure Care',
+                'When to Call Emergency Services'
+            ]
+        },
+        'asthma': {
+            id: 'asthma',
+            title: 'Asthma Attack Response',
+            description: 'Learn to recognize and respond to asthma attacks, including proper inhaler usage.',
+            icon: 'fa-lungs',
+            difficulty: 'Intermediate',
+            duration: '1.5 hours',
+            featured: false,
+            prerequisites: [],
+            topics: [
+                'Asthma Attack Signs',
+                'Using Inhalers',
+                'Breathing Techniques',
                 'Emergency Response'
             ]
         },
-        'cardiac_care': {
-            id: 'cardiac_care',
-            title: 'Cardiac Emergency Response',
-            description: 'Advanced cardiac emergency response techniques and protocols.',
-            icon: 'fa-heartbeat',
-            difficulty: 'Advanced',
-            duration: '4 hours',
+        'burns': {
+            id: 'burns',
+            title: 'Burn Care',
+            description: 'Handle different types of burns effectively and prevent complications.',
+            icon: 'fa-fire',
+            difficulty: 'Intermediate',
+            duration: '2 hours',
             featured: true,
-            prerequisites: ['basic_life_support'],
+            prerequisites: [],
             topics: [
-                'Heart Attack Signs',
-                'Chest Pain Management',
-                'Cardiac Arrest Response',
-                'Post-Cardiac Care'
+                'Types of Burns',
+                'Immediate Burn Care',
+                'Preventing Infection',
+                'When to Seek Medical Help'
             ]
         },
-        'trauma_care': {
-            id: 'trauma_care',
-            title: 'Trauma Care',
-            description: 'Handle severe trauma cases including fractures, bleeding, and head injuries.',
+        'fractures': {
+            id: 'fractures',
+            title: 'Fractures and Sprains',
+            description: 'Learn to identify and provide first aid for bone fractures and sprains.',
             icon: 'fa-bone',
             difficulty: 'Intermediate',
-            duration: '3 hours',
-            featured: false,
-            prerequisites: ['first_aid'],
+            duration: '2 hours',
+            featured: true,
+            prerequisites: [],
             topics: [
-                'Fracture Management',
-                'Severe Bleeding Control',
-                'Head Injury Care',
-                'Spinal Injury Precautions'
+                'Types of Fractures',
+                'RICE Method',
+                'Splinting Techniques',
+                'Transportation Safety'
             ]
         },
-        'pediatric_emergencies': {
-            id: 'pediatric_emergencies',
-            title: 'Pediatric Emergencies',
-            description: 'Specialized care for infants and children in emergency situations.',
-            icon: 'fa-child',
+        'stroke': {
+            id: 'stroke',
+            title: 'Stroke Recognition',
+            description: 'Learn to quickly recognize stroke symptoms and provide immediate assistance.',
+            icon: 'fa-brain',
             difficulty: 'Intermediate',
-            duration: '3 hours',
-            featured: false,
-            prerequisites: ['basic_life_support', 'first_aid'],
+            duration: '1.5 hours',
+            featured: true,
+            prerequisites: [],
             topics: [
-                'Infant CPR',
-                'Choking Response',
-                'Pediatric Injuries',
-                'Child Medical Emergencies'
+                'FAST Method',
+                'Stroke Signs',
+                'Immediate Response',
+                'Recovery Position'
             ]
         },
-        'environmental_emergencies': {
-            id: 'environmental_emergencies',
+        'childbirth': {
+            id: 'childbirth',
+            title: 'Emergency Childbirth',
+            description: 'Be prepared to assist in emergency childbirth situations outside medical facilities.',
+            icon: 'fa-baby',
+            difficulty: 'Advanced',
+            duration: '3 hours',
+            featured: false,
+            prerequisites: [],
+            topics: [
+                'Labor Signs',
+                'Delivery Process',
+                'Newborn Care',
+                'Maternal Care'
+            ]
+        },
+        'poisoning': {
+            id: 'poisoning',
+            title: 'Poisoning Response',
+            description: 'Learn how to respond to different types of poisoning emergencies.',
+            icon: 'fa-skull-crossbones',
+            difficulty: 'Advanced',
+            duration: '2 hours',
+            featured: false,
+            prerequisites: [],
+            topics: [
+                'Types of Poisons',
+                'Initial Response',
+                'Poison Control',
+                'Treatment Methods'
+            ]
+        },
+        'environmental': {
+            id: 'environmental',
             title: 'Environmental Emergencies',
-            description: 'Handle emergencies caused by environmental factors like heat, cold, and altitude.',
-            icon: 'fa-mountain-sun',
+            description: 'Handle emergencies related to heat, cold, and other environmental factors.',
+            icon: 'fa-temperature-high',
             difficulty: 'Intermediate',
             duration: '2 hours',
             featured: false,
-            prerequisites: ['first_aid'],
+            prerequisites: [],
             topics: [
-                'Heat Exhaustion/Stroke',
+                'Heat Exhaustion',
                 'Hypothermia',
                 'Altitude Sickness',
-                'Water Emergencies'
+                'Water Safety'
             ]
         }
     },
 
-    // Module dependencies and prerequisites
-    prerequisites: {
-        'advanced-cardiac': ['cardiac'],
-        'trauma': ['basic-life-support']
+    // Helper functions
+    getFeaturedModules() {
+        return Object.values(this.modules).filter(module => module.featured);
     },
 
-    // Module paths and resources
-    resources: {
-        'cardiac': {
-            path: '/modules/cardiac/cardiac.html',
-            images: {
-                'cpr-position': '/modules/cardiac/images/cpr-position.jpg',
-                'aed-placement': '/modules/cardiac/images/aed-placement.jpg'
-            },
-            videos: {
-                'cpr-demo': '/modules/cardiac/videos/cpr-demonstration.mp4'
-            }
-        },
-        'trauma': {
-            path: '/modules/trauma/trauma.html',
-            images: {
-                'bleeding-control': '/modules/trauma/images/bleeding-control.jpg',
-                'wound-assessment': '/modules/trauma/images/wound-assessment.jpg'
-            }
-        },
-        'basic-life-support': {
-            path: '/modules/basic-life-support/basic-life-support.html',
-            images: {
-                'recovery-position': '/modules/basic-life-support/images/recovery-position.jpg',
-                'vital-signs': '/modules/basic-life-support/images/vital-signs.jpg'
-            }
-        }
+    getAllModules() {
+        return Object.values(this.modules);
+    },
+
+    getModule(moduleId) {
+        return this.modules[moduleId];
+    },
+
+    checkPrerequisites(moduleId) {
+        const module = this.modules[moduleId];
+        if (!module) return false;
+        
+        // In a real app, you'd check user's completed modules
+        // For now, we'll just return true
+        return true;
     }
 };
 
-// Helper functions for module management
-const ModuleHelper = {
-    isModuleAvailable: function(moduleId, userProgress) {
-        const prerequisites = moduleConfig.prerequisites[moduleId] || [];
-        return prerequisites.every(preReqId => 
-            userProgress[preReqId]?.overallProgress === 100
-        );
-    },
-
-    getModuleResources: function(moduleId) {
-        return moduleConfig.resources[moduleId] || null;
-    },
-
-    getModuleData: function(moduleId) {
-        return moduleConfig.modules[moduleId] || null;
-    },
-
-    getAllModules: function() {
-        return Object.keys(moduleConfig.modules).map(moduleId => ({
-            id: moduleId,
-            ...moduleConfig.modules[moduleId]
-        }));
-    },
-
-    getNextModule: function(currentModuleId) {
-        const modules = this.getAllModules();
-        const currentIndex = modules.findIndex(m => m.id === currentModuleId);
-        return modules[currentIndex + 1] || null;
-    },
-
-    getPreviousModule: function(currentModuleId) {
-        const modules = this.getAllModules();
-        const currentIndex = modules.findIndex(m => m.id === currentModuleId);
-        return modules[currentIndex - 1] || null;
-    },
-
-    getDifficultyColor: function(difficulty) {
-        const colors = {
-            'Beginner': 'success',
-            'Intermediate': 'warning',
-            'Advanced': 'danger'
-        };
-        return colors[difficulty] || 'primary';
-    }
-};
-
-// Helper function to get featured modules
-function getFeaturedModules() {
-    return Object.values(moduleConfig.modules).filter(module => module.featured);
-}
-
-// Helper function to get all modules
-function getAllModules() {
-    return Object.values(moduleConfig.modules);
-}
-
-// Helper function to get a specific module
-function getModule(moduleId) {
-    return moduleConfig.modules[moduleId];
-}
-
-// Helper function to check if prerequisites are completed
-function checkPrerequisites(moduleId) {
-    const module = moduleConfig.modules[moduleId];
-    if (!module) return false;
-    
-    // In a real app, you'd check user's completed modules
-    // For now, we'll just return true
-    return true;
-}
-
-// Export the configuration and helper
+// Export the configuration
 window.moduleConfig = moduleConfig;
-window.ModuleHelper = ModuleHelper;
-window.moduleSystem = {
-    getFeaturedModules,
-    getAllModules,
-    getModule,
-    checkPrerequisites
-};

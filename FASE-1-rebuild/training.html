@@ -10,7 +10,10 @@
     <style>
         .module-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
         .module-card:hover {
             transform: translateY(-5px);
@@ -22,7 +25,10 @@
         .module-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--bs-primary);
+            transition: all 0.3s ease;
+        }
+        .module-card:hover .module-icon {
+            transform: scale(1.1);
         }
         .completion-badge {
             position: absolute;
@@ -51,6 +57,39 @@
             font-size: 3rem;
             color: #dc3545;
         }
+        .module-difficulty {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .module-duration {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        .module-topics {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .module-topics ul {
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+        }
+        .filter-section {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .module-card .card-body {
+            display: flex;
+            flex-direction: column;
+        }
+        .module-card .btn {
+            margin-top: auto;
+        }
+        .difficulty-beginner { color: #28a745; }
+        .difficulty-intermediate { color: #ffc107; }
+        .difficulty-advanced { color: #dc3545; }
     </style>
 </head>
 <body>
@@ -85,22 +124,34 @@
         <div class="container">
             <h1>Training Modules</h1>
             <p class="lead">Browse our comprehensive collection of emergency response training modules</p>
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <div class="input-group">
-                        <input type="text" id="moduleSearch" class="form-control" placeholder="Search modules...">
-                        <button class="btn btn-outline-secondary" type="button">
-                            <i class="fas fa-search"></i>
-                        </button>
+            
+            <!-- Filter Section -->
+            <div class="filter-section mt-4">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <input type="text" id="moduleSearch" class="form-control" placeholder="Search modules...">
+                            <button class="btn btn-outline-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <select id="difficultyFilter" class="form-select">
-                        <option value="">All Difficulties</option>
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Advanced">Advanced</option>
-                    </select>
+                    <div class="col-md-4">
+                        <select id="difficultyFilter" class="form-select">
+                            <option value="">All Difficulties</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="durationFilter" class="form-select">
+                            <option value="">All Durations</option>
+                            <option value="1">1-2 Hours</option>
+                            <option value="2">2-3 Hours</option>
+                            <option value="3">3+ Hours</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -108,7 +159,7 @@
 
     <!-- Modules Grid -->
     <div class="container py-5">
-        <div class="row" id="modulesGrid">
+        <div class="row g-4" id="modulesGrid">
             <!-- Modules will be loaded here by JavaScript -->
         </div>
     </div>
@@ -122,7 +173,7 @@
                     <p>Empowering communities through emergency response training</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p> 2024 FASE-1. All rights reserved.</p>
+                    <p>&copy; 2024 FASE-1. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -137,9 +188,9 @@
             setupFilters();
         });
 
-        function loadModules(searchTerm = '', difficulty = '') {
+        function loadModules(searchTerm = '', difficulty = '', duration = '') {
             const modulesGrid = document.getElementById('modulesGrid');
-            let modules = window.moduleSystem.getAllModules();
+            let modules = moduleConfig.getAllModules();
 
             // Apply filters
             modules = modules.filter(module => {
@@ -147,7 +198,8 @@
                     module.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     module.description.toLowerCase().includes(searchTerm.toLowerCase());
                 const matchesDifficulty = !difficulty || module.difficulty === difficulty;
-                return matchesSearch && matchesDifficulty;
+                const matchesDuration = !duration || filterDuration(module.duration, duration);
+                return matchesSearch && matchesDifficulty && matchesDuration;
             });
 
             // Clear existing modules
@@ -160,10 +212,21 @@
             });
         }
 
+        function filterDuration(duration, filter) {
+            const hours = parseInt(duration);
+            switch(filter) {
+                case '1': return hours <= 2;
+                case '2': return hours > 2 && hours <= 3;
+                case '3': return hours > 3;
+                default: return true;
+            }
+        }
+
         function createModuleCard(module) {
             const col = document.createElement('div');
-            col.className = 'col-md-4 mb-4';
+            col.className = 'col-md-4';
             
+            const difficultyClass = `difficulty-${module.difficulty.toLowerCase()}`;
             const prerequisites = module.prerequisites.length > 0 
                 ? `<div class="prerequisites mt-2">
                     <small class="text-muted">
@@ -172,26 +235,37 @@
                    </div>`
                 : '';
             
+            const topics = module.topics.length > 0
+                ? `<div class="module-topics">
+                    <small>
+                        <strong>Topics covered:</strong>
+                        <ul>
+                            ${module.topics.slice(0, 2).map(topic => `<li>${topic}</li>`).join('')}
+                            ${module.topics.length > 2 ? `<li>+${module.topics.length - 2} more...</li>` : ''}
+                        </ul>
+                    </small>
+                   </div>`
+                : '';
+            
             col.innerHTML = `
                 <div class="card module-card h-100">
                     <div class="card-body">
-                        <div class="module-icon mb-3">
-                            <i class="fas ${module.icon} fa-2x"></i>
+                        <div class="module-difficulty">
+                            <span class="badge bg-light text-dark">
+                                <i class="fas fa-layer-group ${difficultyClass}"></i> ${module.difficulty}
+                            </span>
                         </div>
-                        <h3 class="card-title">${module.title}</h3>
+                        <div class="module-icon">
+                            <i class="fas ${module.icon} ${difficultyClass}"></i>
+                        </div>
+                        <h3 class="card-title h5">${module.title}</h3>
                         <p class="card-text">${module.description}</p>
-                        <div class="module-meta">
-                            <span class="badge bg-primary me-2">
-                                <i class="fas fa-clock me-1"></i> ${module.duration}
-                            </span>
-                            <span class="badge bg-secondary">
-                                <i class="fas fa-layer-group me-1"></i> ${module.difficulty}
-                            </span>
+                        <div class="module-duration">
+                            <i class="fas fa-clock"></i> ${module.duration}
                         </div>
+                        ${topics}
                         ${prerequisites}
-                    </div>
-                    <div class="card-footer bg-transparent border-0">
-                        <a href="modules/${module.id}.html" class="btn btn-primary w-100">Start Module</a>
+                        <a href="modules/${module.id}.html" class="btn btn-primary mt-3">Start Module</a>
                     </div>
                 </div>
             `;
@@ -202,14 +276,18 @@
         function setupFilters() {
             const searchInput = document.getElementById('moduleSearch');
             const difficultySelect = document.getElementById('difficultyFilter');
+            const durationSelect = document.getElementById('durationFilter');
 
-            searchInput.addEventListener('input', () => {
-                loadModules(searchInput.value, difficultySelect.value);
-            });
+            function applyFilters() {
+                const searchTerm = searchInput.value;
+                const difficulty = difficultySelect.value;
+                const duration = durationSelect.value;
+                loadModules(searchTerm, difficulty, duration);
+            }
 
-            difficultySelect.addEventListener('change', () => {
-                loadModules(searchInput.value, difficultySelect.value);
-            });
+            searchInput.addEventListener('input', applyFilters);
+            difficultySelect.addEventListener('change', applyFilters);
+            durationSelect.addEventListener('change', applyFilters);
         }
     </script>
 </body>

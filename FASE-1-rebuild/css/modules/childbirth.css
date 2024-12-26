@@ -1,0 +1,252 @@
+/* Emergency Childbirth Module Specific Styles */
+
+/* Module Header */
+.childbirth-header {
+    background: linear-gradient(rgba(255, 105, 180, 0.05), rgba(255, 105, 180, 0.1));
+    padding: 2rem 0;
+    border-radius: 10px;
+}
+
+/* Labor Signs */
+.labor-signs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.labor-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-left: 4px solid hotpink;
+}
+
+.labor-card h5 {
+    color: hotpink;
+    border-bottom: 2px solid rgba(255, 105, 180, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.labor-card i {
+    font-size: 2rem;
+    color: hotpink;
+    margin-bottom: 1rem;
+}
+
+/* Stages Timeline */
+.stages-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.stage-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid hotpink;
+}
+
+.stage-card h5 {
+    color: hotpink;
+    margin-bottom: 1rem;
+}
+
+.stage-card .duration {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* Emergency Steps */
+.emergency-steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+}
+
+.emergency-steps li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.emergency-steps li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: hotpink;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Supplies Checklist */
+.supplies-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.supply-category {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.supply-category h5 {
+    color: hotpink;
+    border-bottom: 2px solid rgba(255, 105, 180, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Complications Alert */
+.complications-alert {
+    background: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid var(--danger-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Newborn Care */
+.newborn-care {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.care-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid hotpink;
+}
+
+.care-card h5 {
+    color: hotpink;
+    margin-bottom: 1rem;
+}
+
+/* APGAR Score */
+.apgar-table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.apgar-table th,
+.apgar-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.apgar-table th {
+    background: rgba(255, 105, 180, 0.1);
+    color: hotpink;
+}
+
+.apgar-table tr:nth-child(even) {
+    background: rgba(255, 105, 180, 0.05);
+}
+
+/* Quiz Section */
+.childbirth-quiz {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.childbirth-quiz .question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.childbirth-quiz .options {
+    display: grid;
+    gap: 1rem;
+}
+
+.childbirth-quiz .option {
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.childbirth-quiz .option:hover {
+    background: rgba(255, 105, 180, 0.05);
+    border-color: hotpink;
+}
+
+.childbirth-quiz .option.selected {
+    background: rgba(255, 105, 180, 0.1);
+    border-color: hotpink;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .labor-signs,
+    .newborn-care {
+        grid-template-columns: 1fr;
+    }
+
+    .supplies-checklist {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-steps li {
+        padding-left: 2.5rem;
+    }
+
+    .apgar-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .emergency-steps li::before {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .labor-card,
+    .stage-card {
+        break-inside: avoid;
+    }
+
+    .complications-alert {
+        break-inside: avoid;
+    }
+
+    .apgar-table {
+        break-inside: avoid;
+    }
+}
